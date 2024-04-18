@@ -1,3 +1,4 @@
+package src.Assignment_1;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
   private boolean[][] opened;
@@ -42,8 +43,8 @@ public class Percolation {
                 uf2.union((row-1)*gridSize+col-1, (row-2)*gridSize+col-1);
             }
             if (row < gridSize && isOpen(row+1, col)) {
-                uf.union((row-1)*gridSize+col-1, i*gridSize+col-1);
-                uf2.union((row-1)*gridSize+col-1, i*gridSize+col-1);
+                uf.union((row-1)*gridSize+col-1, row*gridSize+col-1);
+                uf2.union((row-1)*gridSize+col-1, row*gridSize+col-1);
             }
             if (col > 1   && isOpen(row, col-1)) {
                 uf.union((row-1)*gridSize+col-1, (row-1)*gridSize+col-2);
@@ -89,7 +90,7 @@ public class Percolation {
   }
 
   // test client (optional)
-  public static void main(int row, int col)
+  private boolean checkIndex(int row, int col)
   {
       if (row < 1 || row > gridSize || col < 1 || col > gridSize) return false;
       return true;
