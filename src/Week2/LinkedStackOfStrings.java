@@ -1,5 +1,9 @@
 package src.Week2;
 
+// PERFORMANCE:
+// TIME:  every operation is constant time in worst case
+// SPACE: counting inner class (16 bytes), references to String and Node (8 each), then strings themselves
+// There are faster implementations of Stack 
 public class LinkedStackOfStrings {
   private class Node 
   {
@@ -8,8 +12,6 @@ public class LinkedStackOfStrings {
   }
   private Node first = null;
   
-  public static void main(String[] args) {  }
-
   public boolean isEmpty() 
   {
     return first == null;
@@ -31,3 +33,4 @@ public class LinkedStackOfStrings {
   }
 
 }
+
