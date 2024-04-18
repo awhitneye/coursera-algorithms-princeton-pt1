@@ -5,8 +5,10 @@ package src.Week2;
 public class ArrayStackOfStrings {
   private String[] s;
   private int N = 0; //size, and index of next open position
+  private int c = 0;
   public ArrayStackOfStrings(int capacity) //client needs to provide, cheaty, client maybe can't know size
   { 
+    c = capacity;
     s = new String[capacity]; 
   }
 
@@ -15,13 +17,18 @@ public class ArrayStackOfStrings {
     return N == 0; 
   }
 
-  public void push(String item) //overflow issues? null items? loitering?
+  public void push(String item) //overflow issues? null items? 
   {
+    if(N == c) {
+      return; //do nothing and lose the item?
+    }
     s[N++] = item;
   }
 
-  public String pop() //underflow issues
+  public String pop() //underflow issues? loitering?
   {
-    return s[N--];
+    String item = s[--N];
+    s[N] = null; // gc can clean "item", can reclaim the memory, avoids loitering
+    return item; 
   }
 }
