@@ -1,4 +1,4 @@
-package src.Assignment_1;
+package src.Assign1;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
   private boolean[][] opened;
