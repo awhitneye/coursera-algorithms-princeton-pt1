@@ -1,6 +1,6 @@
 package src.Week2;
 
-public class Stack {
+public class LinkedStackOfStrings {
   private class Node 
   {
     String item;
