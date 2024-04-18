@@ -5,10 +5,8 @@ package src.Week2;
 public class ArrayStackOfStrings {
   private String[] s;
   private int N = 0; //size, and index of next open position
-  private int c = 0;
   public ArrayStackOfStrings(int capacity) //client needs to provide, cheaty, client maybe can't know size
   { 
-    c = capacity;
     s = new String[capacity]; 
   }
 
@@ -19,8 +17,8 @@ public class ArrayStackOfStrings {
 
   public void push(String item) //overflow issues? null items? 
   {
-    if(N == c) {
-      return; //do nothing and lose the item?
+    if(N == s.length) {
+      return; // overflow: do nothing and lose the item?
     }
     s[N++] = item;
   }
